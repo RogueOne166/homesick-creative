@@ -40,3 +40,4 @@ Vercel will publish `index.html` directly. Future pushes to the `main` branch wi
 
 Open `index.html` in a browser, or use the Live Server extension in VS Code.
 
+# homesick-creative
