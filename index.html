@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Homesick Creative — photography, video production, social content and event coverage." />
+  <title>Homesick Creative — Content that feels like you</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Homesick Creative home">HOMESICK<span>CREATIVE</span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav id="main-nav" aria-label="Main navigation">
+      <a href="#work">Work</a><a href="#services">Services</a><a href="#packages">Packages</a>
+      <a class="nav-cta" href="#contact">Start a project</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Independent creative studio · 2026</p>
+        <h1>Stories that make people <em>feel something.</em></h1>
+        <p class="intro">We create photography, films and social content for brands, events and people with something real to say.</p>
+        <a class="text-link" href="#packages">Explore our packages <span>↘</span></a>
+      </div>
+      <figure class="hero-media">
+        <img src="./assets/homesick-hero.png" alt="Creative team directing a coastal film shoot" />
+        <figcaption><span>Photo · Film · Social</span><span>Available worldwide</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="marquee" aria-label="Homesick Creative services">
+      <div>PHOTOGRAPHY <i>✦</i> VIDEO PRODUCTION <i>✦</i> SOCIAL CONTENT <i>✦</i> EVENT COVERAGE <i>✦</i></div>
+    </section>
+
+    <section class="work" id="work">
+      <div class="section-heading"><p class="eyebrow">Selected work</p><h2>Made to be<br><em>remembered.</em></h2></div>
+      <div class="work-grid">
+        <article class="project project-main"><div class="visual coast"></div><p><b>After Hours</b><span>Event film · 2026</span></p></article>
+        <article class="project"><div class="visual studio"></div><p><b>New Rituals</b><span>Brand photography</span></p></article>
+        <article class="project"><div class="visual motion"></div><p><b>Island Frequency</b><span>Social campaign</span></p></article>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div><p class="eyebrow">What we do</p><h2>One crew.<br>Every format.</h2></div>
+      <ol>
+        <li><span>01</span><h3>Photography</h3><p>Editorial, lifestyle, product and brand imagery shaped around your identity.</p></li>
+        <li><span>02</span><h3>Video production</h3><p>From a strong concept to the final cut: campaign films, reels and aftermovies.</p></li>
+        <li><span>03</span><h3>Social content</h3><p>Scroll-stopping photo and video content designed for the platforms you use.</p></li>
+        <li><span>04</span><h3>Event coverage</h3><p>Natural, energetic coverage that captures the atmosphere without interrupting it.</p></li>
+      </ol>
+    </section>
+
+    <section class="packages" id="packages">
+      <div class="packages-head"><div><p class="eyebrow">Creative packages</p><h2>Choose your<br><em>starting point.</em></h2></div><p>Every project is different. These packages keep the process simple, and can be tailored to your goals.</p></div>
+      <div class="package-grid">
+        <article class="package-card"><p class="number">01</p><h3>The Snapshot</h3><p class="price">From €290</p><p class="best-for">For a quick, focused content refresh.</p><ul><li>1.5-hour shoot</li><li>20 edited photographs</li><li>1 location</li><li>7-day delivery</li></ul><a href="#contact" data-package="The Snapshot">Choose Snapshot <span>↗</span></a></article>
+        <article class="package-card featured"><p class="tag">Most popular</p><p class="number">02</p><h3>The Story</h3><p class="price">From €590</p><p class="best-for">For brands ready to show more personality.</p><ul><li>Half-day production</li><li>35 edited photographs</li><li>3 short-form videos</li><li>Creative direction</li></ul><a href="#contact" data-package="The Story">Choose Story <span>↗</span></a></article>
+        <article class="package-card dark"><p class="number">03</p><h3>The Takeover</h3><p class="price">From €990</p><p class="best-for">For launches, campaigns and big moments.</p><ul><li>Full-day production</li><li>60 edited photographs</li><li>1 campaign film + 5 reels</li><li>Strategy & creative direction</li></ul><a href="#contact" data-package="The Takeover">Choose Takeover <span>↗</span></a></article>
+      </div>
+      <p class="pricing-note">Need event coverage or something custom? <a href="#contact">Tell us what you’re planning.</a></p>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-copy"><p class="eyebrow">Start a project</p><h2>Let’s make<br>something <em>worth sharing.</em></h2><p>Tell us what you have in mind. We’ll come back with availability, ideas and a clear quote.</p><div class="contact-links"><a href="mailto:hello@homesickcreative.com">Email ↗</a><a href="https://wa.me/" target="_blank" rel="noreferrer">WhatsApp ↗</a><a href="https://instagram.com/homesickcreative" target="_blank" rel="noreferrer">Instagram ↗</a></div></div>
+      <form id="booking-form">
+        <label>Name<input required name="name" autocomplete="name" placeholder="Your name" /></label>
+        <label>Email<input required type="email" name="email" autocomplete="email" placeholder="you@email.com" /></label>
+        <label>What do you need?<select name="service"><option>Photography</option><option>Video production</option><option>Social media content</option><option>Event coverage</option><option>A custom package</option></select></label>
+        <label>Selected package<select name="package" id="package-select"><option>Not sure yet</option><option>The Snapshot</option><option>The Story</option><option>The Takeover</option></select></label>
+        <label>Tell us about the project<textarea required name="details" rows="4" placeholder="Date, location, idea and anything we should know..."></textarea></label>
+        <button type="submit">Send project enquiry <span>↗</span></button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer><a class="wordmark" href="#top">HOMESICK<span>CREATIVE</span></a><p>Creative work, wherever the story takes us.</p><p>© 2026 Homesick Creative</p></footer>
+  <script src="./assets/site.js"></script>
+</body>
+</html>
