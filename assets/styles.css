@@ -227,17 +227,34 @@ a {
   background-position: center;
 }
 
+/* General settings for all project pictures */
+.visual {
+  height: 32vh;
+  min-height: 260px;
+  background-color: #ddd;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Large picture on the left */
 .project-main .visual {
   height: 74vh;
-  background-image: linear-gradient(130deg, rgba(32, 78, 233, .85), rgba(32, 78, 233, .06)), url('./homesick-hero.png');
 }
 
+/* After Hours */
+.coast {
+  background-image: url("./homesick-hero.png");
+}
+
+/* New Rituals */
 .studio {
-  background-image: linear-gradient(145deg, #121212 20%, #ecece5 20%, #ecece5 60%, #214ee9 60%);
+  background-image: url("./new-rituals.jpg");
 }
 
+/* Island Frequency */
 .motion {
-  background-image: radial-gradient(circle at 70% 30%, #fff 0 8%, transparent 8%), linear-gradient(135deg, #e9e9e4, #111);
+  background-image: url("./island-frequency.png");
 }
 
 /* ==========================================================
