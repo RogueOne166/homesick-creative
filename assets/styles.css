@@ -219,12 +219,60 @@ a {
   color: #6a6a66;
 }
 
+.project {
+  cursor: pointer;
+}
+
+.project:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 8px;
+}
+
 .visual {
+  position: relative;
+  overflow: hidden;
   height: 32vh;
   min-height: 260px;
   background: #ddd;
   background-size: cover;
   background-position: center;
+}
+
+.visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .18);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+.view-project {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+  padding: .65rem .85rem;
+  background: var(--paper);
+  font-size: .75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+.project:hover .visual::after,
+.project:focus-visible .visual::after,
+.project:hover .view-project,
+.project:focus-visible .view-project {
+  opacity: 1;
+}
+
+.project:hover .view-project,
+.project:focus-visible .view-project {
+  transform: translateY(0);
 }
 
 /* General settings for all project pictures */
@@ -255,6 +303,138 @@ a {
 /* Island Frequency */
 .motion {
   background-image: url("./island-frequency.png");
+}
+
+/* ==========================================================
+   PROJECT GALLERY / LIGHTBOX
+   ========================================================== */
+.gallery {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 2vw;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .25s ease, visibility .25s ease;
+}
+
+.gallery.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.gallery-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .82);
+  backdrop-filter: blur(8px);
+}
+
+.gallery-panel {
+  position: relative;
+  width: min(1380px, 100%);
+  height: min(900px, 94vh);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  background: var(--paper);
+  padding: 1.5rem;
+}
+
+.gallery-header,
+.gallery-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.gallery-header {
+  padding-bottom: 1rem;
+}
+
+.gallery-header .eyebrow {
+  margin: 0 0 .25rem;
+  color: #6a6a66;
+}
+
+.gallery-header h2 {
+  margin: 0;
+  font: 400 clamp(2rem, 4vw, 4rem)/1 var(--serif);
+}
+
+.gallery-close,
+.gallery-arrow {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.gallery-close {
+  font: 300 2.8rem/1 var(--sans);
+}
+
+.gallery-stage {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr) 4rem;
+  align-items: center;
+  background: #0d0d0d;
+}
+
+.gallery-media {
+  min-width: 0;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.gallery-media img,
+.gallery-media video {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.gallery-media video {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-arrow {
+  align-self: stretch;
+  color: white;
+  font-size: 1.8rem;
+  transition: background .2s ease;
+}
+
+.gallery-arrow:hover {
+  background: rgba(255, 255, 255, .12);
+}
+
+.gallery-footer {
+  min-height: 3rem;
+  padding-top: 1rem;
+  font-size: .85rem;
+}
+
+.gallery-footer p {
+  margin: 0;
+}
+
+.gallery-count {
+  color: #6a6a66;
+  white-space: nowrap;
+}
+
+body.gallery-open {
+  overflow: hidden;
 }
 
 /* ==========================================================
@@ -608,6 +788,29 @@ footer p:last-child {
     height: 55vh;
   }
 
+  .view-project {
+    opacity: 1;
+    transform: none;
+  }
+
+  .gallery {
+    padding: 0;
+  }
+
+  .gallery-panel {
+    width: 100%;
+    height: 100dvh;
+    padding: 1rem;
+  }
+
+  .gallery-stage {
+    grid-template-columns: 3rem minmax(0, 1fr) 3rem;
+  }
+
+  .gallery-header h2 {
+    font-size: 2.2rem;
+  }
+
   .services {
     grid-template-columns: 1fr;
   }
@@ -663,4 +866,3 @@ footer p:last-child {
   }
 
 }
-
