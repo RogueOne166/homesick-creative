@@ -1016,3 +1016,158 @@ footer p:last-child {
     aspect-ratio: auto;
   }
 }
+
+/* ==========================================================
+   LOGO
+   ========================================================== */
+
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-logo {
+  display: block;
+  width: clamp(110px, 11vw, 165px);
+  height: 55px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* ==========================================================
+   DARK-MODE BUTTON
+   ========================================================== */
+
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  border: 1px solid var(--line);
+  border-radius: 50%;
+
+  background: transparent;
+  color: var(--ink);
+
+  font: inherit;
+  font-size: 1.25rem;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(10deg);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.gallery-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* ==========================================================
+   DARK MODE
+   ========================================================== */
+
+body.dark-mode {
+  --ink: #f5f5f1;
+  --paper: #101010;
+  --line: #333332;
+
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* Header */
+body.dark-mode .site-header {
+  background: rgba(16, 16, 16, 0.94);
+}
+
+/* Convert the black logo to white */
+body.dark-mode .site-logo {
+  filter: invert(1);
+}
+
+/* Main call-to-action */
+body.dark-mode .nav-cta {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Project descriptions */
+body.dark-mode .project p span {
+  color: #aaa;
+}
+
+/* Gallery descriptions and captions */
+body.dark-mode .gallery-page-header > p,
+body.dark-mode .media-item figcaption {
+  color: #aaa;
+}
+
+/* Packages */
+body.dark-mode .package-card {
+  border-color: var(--line);
+}
+
+body.dark-mode .package-card.featured {
+  background: #191919;
+}
+
+body.dark-mode .package-card.dark {
+  background: #050505;
+  border-color: #333;
+}
+
+body.dark-mode .best-for,
+body.dark-mode .pricing-note,
+body.dark-mode .pricing-note a {
+  color: #aaa;
+}
+
+/* Form */
+body.dark-mode form {
+  background: #191919;
+  color: var(--ink);
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background: #191919;
+  color: var(--ink);
+  border-color: #555;
+}
+
+body.dark-mode form button {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Footer */
+body.dark-mode footer {
+  border-color: var(--line);
+}
+
+body.dark-mode footer p:last-child {
+  color: #aaa;
+}
+
+@media (max-width: 800px) {
+  .site-logo {
+    width: 115px;
+    height: 45px;
+  }
+
+  .gallery-header-actions {
+    gap: 1rem;
+  }
+}

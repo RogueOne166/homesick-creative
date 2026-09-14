@@ -20,6 +20,64 @@ navigation.querySelectorAll("a").forEach((link) => {
   });
 });
 
+
+/* ==========================================================
+   DARK MODE
+   ========================================================== */
+
+const themeButton = document.querySelector(".theme-toggle");
+const themeIcon = document.querySelector(".theme-icon");
+
+// Read the visitor's previous choice.
+const savedTheme = localStorage.getItem("homesick-theme");
+
+// Use the saved choice, or the device's preferred theme.
+const prefersDarkMode = window.matchMedia(
+  "(prefers-color-scheme: dark)",
+).matches;
+
+if (
+  savedTheme === "dark" ||
+  (!savedTheme && prefersDarkMode)
+) {
+  document.body.classList.add("dark-mode");
+}
+
+function updateThemeButton() {
+  const isDarkMode =
+    document.body.classList.contains("dark-mode");
+
+  themeIcon.textContent = isDarkMode ? "☀" : "☾";
+
+  themeButton.setAttribute(
+    "aria-label",
+    isDarkMode
+      ? "Switch to light mode"
+      : "Switch to dark mode",
+  );
+}
+
+updateThemeButton();
+
+themeButton.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+
+  const isDarkMode =
+    document.body.classList.contains("dark-mode");
+
+  localStorage.setItem(
+    "homesick-theme",
+    isDarkMode ? "dark" : "light",
+  );
+
+  updateThemeButton();
+});
+
+
+
+
+
+
 /* ==========================================================
    PACKAGE SELECTION
    Selects the chosen package automatically in the form.
