@@ -866,3 +866,153 @@ footer p:last-child {
   }
 
 }
+
+/* ==========================================================
+   REUSABLE GALLERY PAGE
+   ========================================================== */
+
+.gallery-back-link {
+  border-bottom: 1px solid currentColor;
+  padding-bottom: .3rem;
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+.gallery-page {
+  min-height: 80vh;
+  padding: 7rem 3vw 9rem;
+}
+
+.gallery-page-header {
+  display: grid;
+  grid-template-columns: 1.3fr .7fr;
+  gap: 5vw;
+  align-items: end;
+  margin-bottom: 6rem;
+}
+
+.gallery-page-header .eyebrow {
+  margin: 0 0 2rem;
+}
+
+.gallery-page-header h1 {
+  margin: 0;
+  font: 400 clamp(5rem, 10vw, 10rem)/.8 var(--serif);
+  letter-spacing: -.045em;
+}
+
+.gallery-page-header > p {
+  max-width: 30rem;
+  margin: 0;
+  color: #686864;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Two-column gallery */
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4rem 2rem;
+  align-items: start;
+}
+
+.media-item {
+  min-width: 0;
+  margin: 0;
+}
+
+/* Wide items occupy both columns */
+.media-item.media-wide {
+  grid-column: 1 / -1;
+}
+
+.media-item img,
+.media-item video {
+  display: block;
+  width: 100%;
+  background: #111;
+  object-fit: cover;
+}
+
+/* Standard images */
+.media-item img {
+  aspect-ratio: 4 / 5;
+}
+
+/* Wide images */
+.media-wide img {
+  max-height: 85vh;
+  aspect-ratio: 16 / 9;
+}
+
+/* Videos */
+.media-item video {
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+
+/* Captions */
+.media-item figcaption {
+  padding-top: .8rem;
+  color: #686864;
+  font-size: .82rem;
+}
+
+/* Missing-gallery message */
+.gallery-error {
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.gallery-error h2 {
+  margin: 0 0 1rem;
+  font: 400 4rem var(--serif);
+}
+
+.gallery-error p {
+  color: #686864;
+}
+
+.gallery-error a {
+  display: inline-block;
+  margin-top: 1rem;
+  border-bottom: 1px solid;
+  padding-bottom: .3rem;
+  font-weight: 600;
+}
+
+/* ==========================================================
+   MOBILE GALLERY
+   ========================================================== */
+
+@media (max-width: 800px) {
+  .gallery-page {
+    padding-top: 4rem;
+  }
+
+  .gallery-page-header {
+    grid-template-columns: 1fr;
+    margin-bottom: 4rem;
+  }
+
+  .gallery-page-header h1 {
+    font-size: clamp(4.5rem, 20vw, 7rem);
+  }
+
+  .media-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .media-item.media-wide {
+    grid-column: auto;
+  }
+
+  .media-item img,
+  .media-wide img {
+    height: auto;
+    max-height: none;
+    aspect-ratio: auto;
+  }
+}

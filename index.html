@@ -40,20 +40,67 @@
 
     <section class="work" id="work">
       <div class="section-heading"><p class="eyebrow">Selected work</p><h2>Made to be<br><em>remembered.</em></h2></div>
-      <div class="work-grid">
-        <article class="project project-main" data-gallery="after-hours" tabindex="0" role="button" aria-label="Open the After Hours gallery">
-          <div class="visual coast"><span class="view-project">View project ↗</span></div>
-          <p><b>After Hours</b><span>Event film · 2026</span></p>
-        </article>
-        <article class="project" data-gallery="new-rituals" tabindex="0" role="button" aria-label="Open the New Rituals gallery">
-          <div class="visual studio"><span class="view-project">View project ↗</span></div>
-          <p><b>New Rituals</b><span>Brand photography</span></p>
-        </article>
-        <article class="project" data-gallery="island-frequency" tabindex="0" role="button" aria-label="Open the Island Frequency gallery">
-          <div class="visual motion"><span class="view-project">View project ↗</span></div>
-          <p><b>Island Frequency</b><span>Social campaign</span></p>
-        </article>
-      </div>
+	<div class="work-grid">
+
+	  <!-- Events -->
+	  <a
+	    class="project project-main"
+	    href="./gallery.html?category=events"
+	    aria-label="Open the Events gallery"
+	  >
+	    <div
+	      class="visual"
+	      style="background-image: url('./assets/event_pics/event-cover.jpg');"
+	    >
+	      <span class="view-project">View gallery ↗</span>
+	  </div>
+
+    <p>
+      <b>Events</b>
+      <span>Event photography</span>
+    </p>
+  </a>
+
+  <!-- Corporate -->
+  <a
+    class="project"
+    href="./gallery.html?category=corporate"
+    aria-label="Open the Corporate gallery"
+  >
+    <div
+      class="visual"
+      style="background-image: url('./assets/corporate_pics/corporate-cover.jpg');"
+    >
+      <span class="view-project">View gallery ↗</span>
+    </div>
+
+    <p>
+      <b>Corporate</b>
+      <span>Brand photography</span>
+    </p>
+  </a>
+
+  <!-- Lifestyle -->
+  <a
+    class="project"
+    href="./gallery.html?category=lifestyle"
+    aria-label="Open the Lifestyle gallery"
+  >
+    <div
+      class="visual"
+      style="background-image: url('./assets/lifestyle_pics/lifestyle-cover.jpg');"
+    >
+      <span class="view-project">View gallery ↗</span>
+    </div>
+
+    <p>
+      <b>Lifestyle</b>
+      <span>Lifestyle content</span>
+    </p>
+  </a>
+
+</div>
+
     </section>
 
     <section class="services" id="services">
@@ -89,31 +136,6 @@
       </form>
     </section>
   </main>
-
-  <!-- Project gallery: its content is filled by site.js. -->
-  <div class="gallery" id="project-gallery" aria-hidden="true">
-    <div class="gallery-backdrop" data-gallery-close></div>
-    <section class="gallery-panel" role="dialog" aria-modal="true" aria-labelledby="gallery-title">
-      <header class="gallery-header">
-        <div>
-          <p class="eyebrow">Selected project</p>
-          <h2 id="gallery-title"></h2>
-        </div>
-        <button class="gallery-close" type="button" data-gallery-close aria-label="Close gallery">×</button>
-      </header>
-
-      <div class="gallery-stage">
-        <button class="gallery-arrow gallery-previous" type="button" aria-label="Previous item">←</button>
-        <div class="gallery-media" aria-live="polite"></div>
-        <button class="gallery-arrow gallery-next" type="button" aria-label="Next item">→</button>
-      </div>
-
-      <div class="gallery-footer">
-        <p class="gallery-caption"></p>
-        <p class="gallery-count"></p>
-      </div>
-    </section>
-  </div>
 
   <footer><a class="wordmark" href="#top">HOMESICK<span>CREATIVE</span></a><p>Creative work, wherever the story takes us.</p><p>© 2026 Homesick Creative</p></footer>
   <script src="./assets/site.js"></script>
