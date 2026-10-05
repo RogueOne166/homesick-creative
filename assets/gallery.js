@@ -43,13 +43,28 @@ const galleries = {
        },
        {
          type: "image",
+         src: "./assets/event_pics/Guitaristcloseup.jpg",
+         caption: "Prophecy",
+       },
+       {
+         type: "image",
          src: "./assets/event_pics/DSC03817 copie.jpg",
          caption: "CASSIYA",
        },
        {
          type: "image",
+         src: "./assets/event_pics/The-Prophecy-1.jpg",
+         caption: "PROPHECY",
+       },
+       {
+         type: "image",
          src: "./assets/event_pics/DSC03826 copie.jpg",
          caption: "CASSIYA",
+       },
+       {
+         type: "image",
+         src: "./assets/event_pics/EqBoard.jpg",
+         caption: "INSTRUMENTS",
        },
        {
          type: "image",
