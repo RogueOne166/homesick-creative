@@ -24,7 +24,7 @@ const galleries = {
     media: [
       {
         type: "image",
-        src: "./assets/homesick-hero.png",
+        src: "./assets/homesick-hero.jpg",
         alt: "After Hours event",
         caption: "Event atmosphere",
       },
