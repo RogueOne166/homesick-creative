@@ -53,21 +53,6 @@ const galleries = {
        },
        {
          type: "image",
-         src: "./assets/event_pics/DSC03830 copie.jpg",
-         caption: "CASSIYA",
-       },
-       {
-         type: "image",
-         src: "./assets/event_pics/DSC03879 copie.jpg",
-         caption: "CASSIYA",
-       },
-       {
-         type: "image",
-         src: "./assets/event_pics/DSC03901 copie.jpg",
-         caption: "CASSIYA",
-       },
-       {
-         type: "image",
          src: "./assets/event_pics/DSC03964 copie.jpg",
          caption: "CASSIYA",
        },
@@ -94,26 +79,6 @@ const galleries = {
        {
          type: "image",
          src: "./assets/event_pics/DSC04272 copie.jpg",
-         caption: "CASSIYA",
-       },
-       {
-         type: "image",
-         src: "./assets/event_pics/DSC04289 copie.jpg",
-         caption: "CASSIYA",
-       },
-       {
-         type: "image",
-         src: "./assets/event_pics/DSC04293 copie.jpg",
-         caption: "CASSIYA",
-       },
-       {
-         type: "image",
-         src: "./assets/event_pics/DSC04302 copie.jpg",
-         caption: "CASSIYA",
-       },
-       {
-         type: "image",
-         src: "./assets/event_pics/DSC04305 copie.jpg",
          caption: "CASSIYA",
        },
        {
