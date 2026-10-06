@@ -1,236 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="description"
-    content="About Homesick Creative — three creatives telling stories through music, photography, video, culture and moments."
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Homesick Creative — three bros, one vision. Stories through music, photography, video and culture.">
   <title>About — Homesick Creative</title>
-
-  <link
-    rel="stylesheet"
-    href="./assets/styles.css"
-  >
+  <link rel="stylesheet" href="./assets/styles.css">
 </head>
-
-<body>
-
-  <!-- =====================================================
-       NAVIGATION
-  ====================================================== -->
+<body class="about-page">
+  <!-- Shared navigation: section links return to the homepage. -->
   <header class="site-header">
-
-    <!-- Replace the src with your actual logo path -->
-    <a
-      class="site-logo"
-      href="./index.html"
-      aria-label="Homesick Creative home"
-    >
-      <img
-        src="./assets/logo-homesick-white-HD.png"
-        alt="Homesick Creative"
-      >
+    <a class="logo-link" href="./index.html" aria-label="Homesick Creative home">
+      <img class="site-logo" src="./assets/logo-homesick-white-HD.png" alt="Homesick Creative">
     </a>
-
-    <nav class="main-nav">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav id="main-nav" aria-label="Main navigation">
       <a href="./index.html#work">Work</a>
-      <a href="./about.html" class="active">About</a>
-      <a href="./index.html#contact">Contact</a>
-
-      <!-- Dark mode button -->
-      <button
-        class="theme-toggle"
-        id="theme-toggle"
-        type="button"
-        aria-label="Toggle dark mode"
-      >
-        ◐
+      <a href="./index.html#services">Services</a>
+      <a href="./index.html#packages">Packages</a>
+      <a href="./about.html" aria-current="page">About</a>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <span class="theme-icon" aria-hidden="true">☾</span>
       </button>
+      <a class="nav-cta" href="./index.html#contact">Start a project</a>
     </nav>
-
   </header>
-
-
   <main>
-
-    <!-- =====================================================
-         ABOUT HERO
-    ====================================================== -->
-    <section class="about-hero">
-
-      <img
-        src="./assets/about/about-hero.jpg"
-        alt="Homesick Creative"
-        class="about-hero-image"
-      >
-
-      <div class="about-hero-overlay"></div>
-
+    <!-- Hero: keep the image filename and extension exactly as shown. -->
+    <section class="about-hero" aria-labelledby="about-title">
+      <img class="about-hero-image" src="./assets/AboutHmsk.png" alt="The three creatives behind Homesick Creative at the decks" fetchpriority="high">
+      <div class="about-hero-overlay" aria-hidden="true"></div>
       <div class="about-hero-content">
-        <p class="about-eyebrow">
-          HOMESICK CREATIVE
-        </p>
-
-        <h1>
-          THREE BROS.<br>
-          ONE VISION.
-        </h1>
+        <p class="about-eyebrow">HOMESICK CREATIVE</p>
+        <h1 id="about-title">THREE BROS.<br>ONE VISION.</h1>
       </div>
-
     </section>
-
-
-    <!-- =====================================================
-         INTRO / MANIFESTO
-    ====================================================== -->
-    <section class="about-intro">
-
-      <div class="about-intro-label">
-        <p>WHO WE ARE</p>
-      </div>
-
+    <!-- Introduction -->
+    <section class="about-intro" aria-labelledby="intro-title">
+      <div class="about-intro-label"><p>WHO WE ARE</p></div>
       <div class="about-intro-text">
-
-        <h2>
-          We tell stories through
-          <span>music, photos, videos, moments and culture.</span>
-        </h2>
-
-        <p>
-          Homesick Creative started with three creative bros,
-          one shared vision, and the desire to tell stories
-          our own way.
-        </p>
-
-        <p>
-          We don't want to fit into one box. We're a mix of
-          everything that inspires us — the sounds we listen to,
-          the people we meet, the places we go, the moments we
-          live and the cultures that shape us.
-        </p>
-
+        <h2 id="intro-title">We tell stories through <span>music, photos, videos, moments and culture.</span></h2>
+        <p>Homesick Creative started with three creative bros, one shared vision, and the desire to tell stories our own way.</p>
+        <p>We're a mix of everything that inspires us — the sounds we listen to, the people we meet, the places we go, the moments we live and the cultures that shape us.</p>
       </div>
-
     </section>
-
-
-    <!-- =====================================================
-         BIG STATEMENT
-    ====================================================== -->
-    <section class="about-statement">
-
-      <p class="about-statement-small">
-        OUR APPROACH
-      </p>
-
-      <h2>
-        NOT JUST CONTENT.<br>
-        <em>STORIES.</em>
-      </h2>
-
+    <!-- Manifesto -->
+    <section class="about-statement" aria-labelledby="statement-title">
+      <p class="about-statement-small">OUR APPROACH</p>
+      <h2 id="statement-title">NOT JUST CONTENT.<br><em>STORIES.</em></h2>
     </section>
-
-
-    <!-- =====================================================
-         WHAT WE CREATE
-    ====================================================== -->
-    <section class="about-create">
-
-      <div class="about-section-heading">
-        <p>WHAT WE CREATE</p>
-        <span>(01 — 04)</span>
-      </div>
-
+    <!-- Creative disciplines -->
+    <section class="about-create" aria-label="What we create">
+      <div class="about-section-heading"><p>WHAT WE CREATE</p><span>(01 — 04)</span></div>
       <div class="about-services">
-
-        <div class="about-service">
-          <span>01</span>
-          <h3>Photography</h3>
-        </div>
-
-        <div class="about-service">
-          <span>02</span>
-          <h3>Film & Video</h3>
-        </div>
-
-        <div class="about-service">
-          <span>03</span>
-          <h3>Music & Events</h3>
-        </div>
-
-        <div class="about-service">
-          <span>04</span>
-          <h3>Culture & Moments</h3>
-        </div>
-
+        <div class="about-service"><span>01</span><h3>Photography</h3></div>
+        <div class="about-service"><span>02</span><h3>Film &amp; Video</h3></div>
+        <div class="about-service"><span>03</span><h3>Music &amp; Events</h3></div>
+        <div class="about-service"><span>04</span><h3>Culture &amp; Moments</h3></div>
       </div>
-
     </section>
-
-
-    <!-- =====================================================
-         PHILOSOPHY
-    ====================================================== -->
-    <section class="about-philosophy">
-
-      <p>
-        Sometimes it's a concert.
-        Sometimes it's a portrait.
-        Sometimes it's a DJ set, a night,
-        a journey or simply a moment
-        worth remembering.
-      </p>
-
-      <h2>
-        WE CREATE.<br>
-        WE CAPTURE.<br>
-        WE TELL STORIES.
-      </h2>
-
+    <!-- Philosophy -->
+    <section class="about-philosophy" aria-labelledby="philosophy-title">
+      <p>Sometimes it's a concert. Sometimes it's a portrait. Sometimes it's a DJ set, a night, a journey or simply a moment worth remembering.</p>
+      <h2 id="philosophy-title">WE CREATE.<br>WE CAPTURE.<br>WE TELL STORIES.</h2>
     </section>
-
-
-    <!-- =====================================================
-         CONTACT CTA
-    ====================================================== -->
-    <section class="about-contact">
-
+    <!-- Contact -->
+    <section class="about-contact" aria-label="Start a project">
       <p>GOT SOMETHING IN MIND?</p>
-
-      <a href="./index.html#contact">
-        LET'S CREATE SOMETHING
-        <span>↗</span>
-      </a>
-
+      <a href="./index.html#contact">LET'S CREATE SOMETHING <span aria-hidden="true">↗</span></a>
     </section>
-
   </main>
-
-
-  <!-- =====================================================
-       FOOTER
-  ====================================================== -->
   <footer class="about-footer">
-
     <p>HOMESICK CREATIVE © 2026</p>
-
-    <p>
-      MUSIC · PEOPLE · CULTURE · MOMENTS
-    </p>
-
+    <p>MUSIC · PEOPLE · CULTURE · MOMENTS</p>
   </footer>
-
-
-  <script src="./assets/site.js"></script>
-
+  <!-- Uses your existing menu and dark-mode handlers. -->
+  <script src="./assets/site.js" defer></script>
 </body>
 </html>

@@ -1,6 +1,25 @@
+/* HOMESICK CREATIVE — MAIN STYLESHEET
+   Paths below are relative to this file in assets/styles.css.
+   01. Theme variables and reset
+   02. Navigation, logo and theme button
+   03. Homepage image hero
+   04. Homepage video hero
+   05. Animated banner
+   06. Selected work
+   07. Gallery lightbox
+   08. Services
+   09. Packages
+   10. Contact form
+   11. Footer and focus styles
+   12. Gallery pages
+   13. About page
+   14. Dark mode
+   15. Responsive layouts
+   16. Reduced motion
+*/
+
 /* ==========================================================
-   1. DESIGN TOKENS
-   Change these variables to update the site's main theme.
+   01. Theme variables and reset
    ========================================================== */
 :root {
   --ink: #111;
@@ -11,7 +30,6 @@
   --sans: "DM Sans", Arial, sans-serif;
 }
 
-/* Apply predictable sizing to every element. */
 * {
   box-sizing: border-box;
 }
@@ -34,8 +52,7 @@ a {
 }
 
 /* ==========================================================
-   2. NAVIGATION
-   The header remains visible while the visitor scrolls.
+   02. Navigation, logo and theme button
    ========================================================== */
 .site-header {
   height: 86px;
@@ -46,7 +63,7 @@ a {
   border-bottom: 1px solid var(--line);
   position: sticky;
   top: 0;
-  background: rgba(247, 247, 244, .94);
+  background: var(--paper);
   backdrop-filter: blur(10px);
   z-index: 10;
 }
@@ -73,8 +90,9 @@ a {
 
 .nav-cta {
   background: var(--ink);
-  color: white;
+  color: var(--paper);
   padding: .85rem 1.2rem;
+  border-radius: 100px;
 }
 
 .menu-toggle {
@@ -82,11 +100,85 @@ a {
   background: none;
   border: 0;
   font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-logo {
+  display: block;
+  width: clamp(110px, 11vw, 165px);
+  height: 55px;
+  object-fit: contain;
+  object-position: left center;
+  filter: brightness(0);
+}
+
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(10deg);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.gallery-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+body:has(.video-hero) .site-header, .about-page .site-header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: transparent;
+  border-bottom: 0;
+  backdrop-filter: none;
+  color: #fff;
+  z-index: 100;
+}
+
+body:has(.video-hero) .site-logo, .about-page .site-logo {
+  filter: brightness(0) invert(1);
+}
+
+body:has(.video-hero) .nav-cta, .about-page .nav-cta {
+  background: #fff;
+  color: #111;
+}
+
+body:has(.video-hero) .theme-toggle, .about-page .theme-toggle {
+  color: #fff;
+  border-color: #ffffff66;
+}
+
+.site-header nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: .4rem;
 }
 
 /* ==========================================================
-   3. HERO
-   The reduced padding prevents a large gap below the navbar.
+   03. Homepage image hero
    ========================================================== */
 .hero {
   padding: 2rem 3vw 3rem;
@@ -151,7 +243,98 @@ a {
 }
 
 /* ==========================================================
-   4. ANIMATED SERVICES BANNER
+   04. Homepage video hero
+   ========================================================== */
+.video-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #000;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+}
+
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.hero-video-content {
+  position: relative;
+  z-index: 3;
+  width: min(1200px, 90%);
+  text-align: center;
+  color: #fff;
+}
+
+.hero-eyebrow {
+  margin-bottom: 24px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.hero-video-content h1 {
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: "Instrument Serif", serif;
+  font-size: clamp(4rem, 9vw, 9rem);
+  font-weight: 400;
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+}
+
+.hero-video-content h1 em {
+  display: block;
+  font-weight: 400;
+}
+
+.hero-intro {
+  margin: 32px auto 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero-scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 50px;
+  padding-bottom: 5px;
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.85rem;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: opacity 0.3s ease, gap 0.3s ease;
+}
+
+.hero-scroll:hover {
+  opacity: 0.7;
+  gap: 18px;
+}
+
+/* ==========================================================
+   05. Animated banner
    ========================================================== */
 .marquee {
   overflow: hidden;
@@ -177,11 +360,10 @@ a {
   to {
     transform: translateX(-30%);
   }
-
 }
 
 /* ==========================================================
-   5. PORTFOLIO / SELECTED WORK
+   06. Selected work
    ========================================================== */
 .work, .packages {
   padding: 9rem 3vw;
@@ -236,6 +418,8 @@ a {
   background: #ddd;
   background-size: cover;
   background-position: center;
+  background-color: #ddd;
+  background-repeat: no-repeat;
 }
 
 .visual::after {
@@ -275,38 +459,24 @@ a {
   transform: translateY(0);
 }
 
-/* General settings for all project pictures */
-.visual {
-  height: 32vh;
-  min-height: 260px;
-  background-color: #ddd;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Large picture on the left */
 .project-main .visual {
   height: 74vh;
 }
 
-/* After Hours */
 .coast {
   background-image: url("./homesick-hero.png");
 }
 
-/* New Rituals */
 .studio {
   background-image: url("./new-rituals.jpg");
 }
 
-/* Island Frequency */
 .motion {
   background-image: url("./island-frequency.png");
 }
 
 /* ==========================================================
-   PROJECT GALLERY / LIGHTBOX
+   07. Gallery lightbox
    ========================================================== */
 .gallery {
   position: fixed;
@@ -438,7 +608,7 @@ body.gallery-open {
 }
 
 /* ==========================================================
-   6. SERVICES
+   08. Services
    ========================================================== */
 .services {
   background: #111;
@@ -490,7 +660,7 @@ body.gallery-open {
 }
 
 /* ==========================================================
-   7. PRICING PACKAGES
+   09. Packages
    ========================================================== */
 .packages-head {
   display: flex;
@@ -612,7 +782,7 @@ body.gallery-open {
 }
 
 /* ==========================================================
-   8. CONTACT AND BOOKING FORM
+   10. Contact form
    ========================================================== */
 .contact {
   display: grid;
@@ -703,14 +873,359 @@ form button {
 }
 
 /* ==========================================================
-   9. FOOTER AND KEYBOARD ACCESSIBILITY
+   11. Footer and focus styles
    ========================================================== */
 footer {
-  padding: 3rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 3rem;
+  grid-template-columns: 1fr 1fr 1fr;
   border-top: 1px solid var(--line);
+}
+
+.gallery-header {
+  padding-bottom: 1rem;
+}
+
+.gallery-header .eyebrow {
+  margin: 0 0 .25rem;
+  color: #6a6a66;
+}
+
+.gallery-header h2 {
+  margin: 0;
+  font: 400 clamp(2rem, 4vw, 4rem)/1 var(--serif);
+}
+
+.gallery-close,
+.gallery-arrow {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.gallery-close {
+  font: 300 2.8rem/1 var(--sans);
+}
+
+.gallery-stage {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr) 4rem;
+  align-items: center;
+  background: #0d0d0d;
+}
+
+.gallery-media {
+  min-width: 0;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.gallery-media img,
+.gallery-media video {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.gallery-media video {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-arrow {
+  align-self: stretch;
+  color: white;
+  font-size: 1.8rem;
+  transition: background .2s ease;
+}
+
+.gallery-arrow:hover {
+  background: rgba(255, 255, 255, .12);
+}
+
+.gallery-footer {
+  min-height: 3rem;
+  padding-top: 1rem;
+  font-size: .85rem;
+}
+
+.gallery-footer p {
+  margin: 0;
+}
+
+.gallery-count {
+  color: #6a6a66;
+  white-space: nowrap;
+}
+
+body.gallery-open {
+  overflow: hidden;
+}
+
+.services {
+  background: #111;
+  color: white;
+  padding: 8rem 3vw;
+  display: grid;
+  grid-template-columns: .72fr 1.28fr;
+  gap: 6vw;
+}
+
+.services h2 {
+  font: 400 clamp(4rem, 7vw, 7.5rem)/.88 var(--serif);
+  letter-spacing: -.04em;
+  margin: 2rem 0;
+}
+
+.services ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.services li {
+  display: grid;
+  grid-template-columns: 3rem 1fr 1.3fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 2rem 0;
+  border-top: 1px solid #454545;
+}
+
+.services li:last-child {
+  border-bottom: 1px solid #454545;
+}
+
+.services li span {
+  color: #888;
+}
+
+.services h3 {
+  font: 400 2rem var(--serif);
+  margin: 0;
+}
+
+.services li p {
+  color: #bdbdb8;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.packages-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 4rem;
+}
+
+.packages-head h2 {
+  font-size: clamp(4rem, 7vw, 7rem);
+  margin: 1.5rem 0 0;
+}
+
+.packages-head>p {
+  max-width: 28rem;
+  line-height: 1.6;
+}
+
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.package-card {
+  border: 1px solid var(--line);
+  padding: 2rem;
+  min-height: 580px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.package-card+.package-card {
+  border-left: 0;
+}
+
+.package-card.featured {
+  background: #fff;
+}
+
+.package-card.dark {
+  background: #111;
+  color: white;
+  border-color: #111;
+}
+
+.package-card .tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--blue);
+  color: #fff;
+  margin: 0;
+  padding: .5rem .8rem;
+  text-transform: uppercase;
+  font-size: .64rem;
+  letter-spacing: .1em;
+}
+
+.number {
+  font-size: .75rem;
+  color: #888;
+}
+
+.package-card h3 {
+  font: 400 2.65rem var(--serif);
+  margin: 3rem 0 .5rem;
+}
+
+.price {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.best-for {
+  line-height: 1.5;
+  color: #686864;
+  min-height: 3rem;
+}
+
+.dark .best-for {
+  color: #aaa;
+}
+
+.package-card ul {
+  list-style: none;
+  padding: 1.5rem 0;
+  margin: 1rem 0 auto;
+  border-top: 1px solid var(--line);
+}
+
+.package-card li {
+  padding: .65rem 0;
+}
+
+.package-card li:before {
+  content: '—';
+  margin-right: .7rem;
+  color: var(--blue);
+}
+
+.package-card>a {
+  border-top: 1px solid;
+  padding-top: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pricing-note {
+  text-align: center;
+  margin-top: 2.3rem;
+  color: #666;
+}
+
+.pricing-note a {
+  color: #111;
+  border-bottom: 1px solid;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8vw;
+  padding: 9rem 3vw;
+  background: #214ee9;
+  color: white;
+}
+
+.contact h2 {
+  font-size: clamp(4rem, 7vw, 7.5rem);
+  margin: 2rem 0;
+}
+
+.contact h2 em {
+  color: white;
+}
+
+.contact-copy>p {
+  line-height: 1.6;
+  max-width: 32rem;
+}
+
+.contact-links {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.contact-links a {
+  border-bottom: 1px solid;
+}
+
+form {
+  background: white;
+  color: #111;
+  padding: 2.5rem;
+  align-self: start;
+}
+
+label {
+  display: block;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 1.4rem;
+}
+
+input, select, textarea {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #aaa;
+  background: white;
+  border-radius: 0;
+  padding: .8rem 0;
+  font: 400 1rem var(--sans);
+  margin-top: .25rem;
+  color: #111;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 0;
+  border-color: var(--blue);
+}
+
+form button {
+  width: 100%;
+  border: 0;
+  background: #111;
+  color: #fff;
+  padding: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  font: 600 .95rem var(--sans);
+  cursor: pointer;
+}
+
+.form-status {
+  font-size: .85rem;
+  margin-bottom: 0;
+  color: #385044;
 }
 
 footer p:last-child {
@@ -724,153 +1239,8 @@ footer p:last-child {
 }
 
 /* ==========================================================
-   10. MOBILE LAYOUT
-   These rules apply to screens that are 800px wide or less.
+   12. Gallery pages
    ========================================================== */
-@media(max-width:800px) {
-  .site-header {
-    height: 72px;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .site-header nav {
-    display: none;
-    position: absolute;
-    top: 72px;
-    left: 0;
-    right: 0;
-    background: var(--paper);
-    padding: 1.5rem 3vw;
-    flex-direction: column;
-    align-items: stretch;
-    border-bottom: 1px solid;
-  }
-
-  .site-header nav.open {
-    display: flex;
-  }
-
-  .hero {
-    grid-template-columns: 1fr;
-    padding-top: 3.5rem;
-    min-height: auto;
-  }
-
-  .hero h1 {
-    font-size: clamp(4rem, 17vw, 6.4rem);
-  }
-
-  .hero-media img {
-    height: 55vh;
-  }
-
-  .section-heading, .packages-head {
-    display: block;
-  }
-
-  .section-heading h2 {
-    text-align: left;
-    margin-top: 2rem;
-  }
-
-  .work-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .project-main {
-    grid-row: auto;
-  }
-
-  .project-main .visual, .visual {
-    height: 55vh;
-  }
-
-  .view-project {
-    opacity: 1;
-    transform: none;
-  }
-
-  .gallery {
-    padding: 0;
-  }
-
-  .gallery-panel {
-    width: 100%;
-    height: 100dvh;
-    padding: 1rem;
-  }
-
-  .gallery-stage {
-    grid-template-columns: 3rem minmax(0, 1fr) 3rem;
-  }
-
-  .gallery-header h2 {
-    font-size: 2.2rem;
-  }
-
-  .services {
-    grid-template-columns: 1fr;
-  }
-
-  .services li {
-    grid-template-columns: 2.5rem 1fr;
-  }
-
-  .services li p {
-    grid-column: 2;
-  }
-
-  .package-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .package-card+.package-card {
-    border-left: 1px solid var(--line);
-    border-top: 0;
-  }
-
-  .package-card {
-    min-height: 520px;
-  }
-
-  .contact {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-links {
-    flex-wrap: wrap;
-  }
-
-  footer {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  footer p:last-child {
-    text-align: left;
-  }
-
-}
-
-/* Respect visitors who disable animations on their device. */
-@media(prefers-reduced-motion:reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .marquee div {
-    animation: none;
-  }
-
-}
-
-/* ==========================================================
-   REUSABLE GALLERY PAGE
-   ========================================================== */
-
 .gallery-back-link {
   border-bottom: 1px solid currentColor;
   padding-bottom: .3rem;
@@ -909,7 +1279,6 @@ footer p:last-child {
   line-height: 1.6;
 }
 
-/* Two-column gallery */
 .media-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -922,7 +1291,6 @@ footer p:last-child {
   margin: 0;
 }
 
-/* Wide items occupy both columns */
 .media-item.media-wide {
   grid-column: 1 / -1;
 }
@@ -935,31 +1303,26 @@ footer p:last-child {
   object-fit: cover;
 }
 
-/* Standard images */
 .media-item img {
   aspect-ratio: 4 / 5;
 }
 
-/* Wide images */
 .media-wide img {
   max-height: 85vh;
   aspect-ratio: 16 / 9;
 }
 
-/* Videos */
 .media-item video {
   aspect-ratio: 16 / 9;
   object-fit: contain;
 }
 
-/* Captions */
 .media-item figcaption {
   padding-top: .8rem;
   color: #686864;
   font-size: .82rem;
 }
 
-/* Missing-gallery message */
 .gallery-error {
   padding: 5rem 0;
   text-align: center;
@@ -983,137 +1346,262 @@ footer p:last-child {
 }
 
 /* ==========================================================
-   MOBILE GALLERY
+   13. About page
    ========================================================== */
-
-@media (max-width: 800px) {
-  .gallery-page {
-    padding-top: 4rem;
-  }
-
-  .gallery-page-header {
-    grid-template-columns: 1fr;
-    margin-bottom: 4rem;
-  }
-
-  .gallery-page-header h1 {
-    font-size: clamp(4.5rem, 20vw, 7rem);
-  }
-
-  .media-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .media-item.media-wide {
-    grid-column: auto;
-  }
-
-  .media-item img,
-  .media-wide img {
-    height: auto;
-    max-height: none;
-    aspect-ratio: auto;
-  }
+.about-page .about-hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 650px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #111;
+  isolation: isolate;
 }
 
-/* ==========================================================
-   LOGO
-   ========================================================== */
-
-.logo-link {
-  display: inline-flex;
-  align-items: center;
-}
-
-.site-logo {
+.about-page .about-hero-image {
+  position: absolute;
+  inset: 0;
   display: block;
-  width: clamp(110px, 11vw, 165px);
-  height: 55px;
-  object-fit: contain;
-  object-position: left center;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
 }
 
-/* ==========================================================
-   DARK-MODE BUTTON
-   ========================================================== */
+.about-page .about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, #000b 0%, #0002 55%, #0006 100%);
+  pointer-events: none;
+}
 
-.theme-toggle {
-  width: 42px;
-  height: 42px;
+.about-page .about-hero-content {
+  position: absolute;
+  z-index: 2;
+  left: clamp(24px,5vw,80px);
+  right: clamp(24px,5vw,80px);
+  bottom: clamp(40px,6vw,80px);
+  color: #fff;
+}
+
+.about-page .about-eyebrow {
+  margin: 0 0 20px;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+}
+
+.about-page .about-hero h1 {
+  margin: 0;
+  font: 700 clamp(3rem,10vw,9rem)/.9 var(--sans);
+  letter-spacing: -.06em;
+  color: #fff;
+}
+
+.about-page .about-statement h2 em {
+  color: inherit;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.about-page .about-intro-text h2 span {
+  opacity: .65;
+}
+
+.about-page .about-footer p:last-child {
+  color: inherit;
+}
+
+.about-page .about-intro {
   display: grid;
-  place-items: center;
-  flex-shrink: 0;
-
-  border: 1px solid var(--line);
-  border-radius: 50%;
-
-  background: transparent;
-  color: var(--ink);
-
-  font: inherit;
-  font-size: 1.25rem;
-  cursor: pointer;
-
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease;
+  grid-template-columns: 1fr 2.5fr;
+  gap: 60px;
+  padding: clamp(80px, 12vw, 180px) clamp(24px, 5vw, 80px);
 }
 
-.theme-toggle:hover {
-  transform: rotate(10deg);
-  background: var(--ink);
-  color: var(--paper);
+.about-page .about-intro-label p {
+  margin: 8px 0 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
 }
 
-.gallery-header-actions {
+.about-page .about-intro-text {
+  max-width: 950px;
+}
+
+.about-page .about-intro-text h2 {
+  margin: 0 0 70px;
+  font-size: clamp(2.5rem, 5vw, 5.5rem);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+}
+
+.about-page .about-intro-text > p {
+  max-width: 700px;
+  margin: 0 0 25px;
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  line-height: 1.6;
+}
+
+.about-page .about-statement {
+  padding: clamp(100px, 15vw, 220px) clamp(24px, 5vw, 80px);
+  background: #111111;
+  color: #ffffff;
+}
+
+.about-page .about-statement-small {
+  margin: 0 0 60px;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+}
+
+.about-page .about-statement h2 {
+  margin: 0;
+  font-size: clamp(4rem, 10vw, 10rem);
+  line-height: 0.85;
+  font-weight: 600;
+  letter-spacing: -0.07em;
+}
+
+.about-page .about-create {
+  padding: clamp(80px, 12vw, 160px) clamp(24px, 5vw, 80px);
+}
+
+.about-page .about-section-heading {
   display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid currentColor;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+}
+
+.about-page .about-services {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-page .about-service {
+  display: grid;
+  grid-template-columns: 100px 1fr;
   align-items: center;
-  gap: 1.5rem;
+  padding: 35px 0;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.35);
+}
+
+.about-page .about-service span {
+  font-size: 0.7rem;
+}
+
+.about-page .about-service h3 {
+  margin: 0;
+  font-size: clamp(2.3rem, 5vw, 5rem);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+}
+
+.about-page .about-philosophy {
+  padding: clamp(100px, 15vw, 220px) clamp(24px, 5vw, 80px);
+}
+
+.about-page .about-philosophy > p {
+  width: min(500px, 100%);
+  margin: 0 0 120px auto;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.about-page .about-philosophy h2 {
+  margin: 0;
+  font-size: clamp(3.5rem, 9vw, 9rem);
+  line-height: 0.88;
+  letter-spacing: -0.07em;
+}
+
+.about-page .about-contact {
+  padding: clamp(80px, 10vw, 150px) clamp(24px, 5vw, 80px);
+  background: #111111;
+  color: #ffffff;
+}
+
+.about-page .about-contact > p {
+  margin: 0 0 40px;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+}
+
+.about-page .about-contact a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  font-size: clamp(2.5rem, 7vw, 7rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  transition: opacity 0.2s ease;
+}
+
+.about-page .about-contact a:hover {
+  opacity: 0.55;
+}
+
+.about-page .about-contact a span {
+  font-weight: 300;
+}
+
+.about-page .about-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 30px clamp(24px, 5vw, 80px);
+  background: #111111;
+  color: #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
 }
 
 /* ==========================================================
-   DARK MODE
+   14. Dark mode
    ========================================================== */
-
 body.dark-mode {
   --ink: #f5f5f1;
   --paper: #101010;
   --line: #333332;
-
   background: var(--paper);
   color: var(--ink);
 }
 
-/* Header */
 body.dark-mode .site-header {
   background: rgba(16, 16, 16, 0.94);
 }
 
-/* Convert the black logo to white */
 body.dark-mode .site-logo {
-  filter: invert(1);
+  filter: brightness(0) invert(1);
 }
 
-/* Main call-to-action */
 body.dark-mode .nav-cta {
   background: var(--ink);
   color: var(--paper);
 }
 
-/* Project descriptions */
 body.dark-mode .project p span {
   color: #aaa;
 }
 
-/* Gallery descriptions and captions */
 body.dark-mode .gallery-page-header > p,
 body.dark-mode .media-item figcaption {
   color: #aaa;
 }
 
-/* Packages */
 body.dark-mode .package-card {
   border-color: var(--line);
 }
@@ -1133,7 +1621,6 @@ body.dark-mode .pricing-note a {
   color: #aaa;
 }
 
-/* Form */
 body.dark-mode form {
   background: #191919;
   color: var(--ink);
@@ -1152,7 +1639,6 @@ body.dark-mode form button {
   color: var(--paper);
 }
 
-/* Footer */
 body.dark-mode footer {
   border-color: var(--line);
 }
@@ -1161,681 +1647,256 @@ body.dark-mode footer p:last-child {
   color: #aaa;
 }
 
+body.dark-mode:has(.video-hero) .site-header, body.dark-mode.about-page .site-header {
+  background: transparent;
+}
+
+body.dark-mode:has(.video-hero) .nav-cta, body.dark-mode.about-page .nav-cta {
+  background: #fff;
+  color: #111;
+}
+
+body.dark-mode .menu-toggle {
+  color: inherit;
+}
+
+/* ==========================================================
+   15. Responsive layouts
+   ========================================================== */
+@media(max-width:800px) {
+  .site-header {
+    height: 72px;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+  
+  .site-header nav {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    padding: 1.5rem 3vw;
+    flex-direction: column;
+    align-items: stretch;
+    border-bottom: 1px solid;
+  }
+  
+  .site-header nav.open {
+    display: flex;
+  }
+  
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 3.5rem;
+    min-height: auto;
+  }
+  
+  .hero h1 {
+    font-size: clamp(4rem, 17vw, 6.4rem);
+  }
+  
+  .hero-media img {
+    height: 55vh;
+  }
+  
+  .section-heading, .packages-head {
+    display: block;
+  }
+  
+  .section-heading h2 {
+    text-align: left;
+    margin-top: 2rem;
+  }
+  
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-main {
+    grid-row: auto;
+  }
+  
+  .project-main .visual, .visual {
+    height: 55vh;
+  }
+  
+  .view-project {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .gallery {
+    padding: 0;
+  }
+  
+  .gallery-panel {
+    width: 100%;
+    height: 100dvh;
+    padding: 1rem;
+  }
+  
+  .gallery-stage {
+    grid-template-columns: 3rem minmax(0, 1fr) 3rem;
+  }
+  
+  .gallery-header h2 {
+    font-size: 2.2rem;
+  }
+  
+  .services {
+    grid-template-columns: 1fr;
+  }
+  
+  .services li {
+    grid-template-columns: 2.5rem 1fr;
+  }
+  
+  .services li p {
+    grid-column: 2;
+  }
+  
+  .package-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .package-card+.package-card {
+    border-left: 1px solid var(--line);
+    border-top: 0;
+  }
+  
+  .package-card {
+    min-height: 520px;
+  }
+  
+  .contact {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-links {
+    flex-wrap: wrap;
+  }
+  
+  footer {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  footer p:last-child {
+    text-align: left;
+  }
+}
+
 @media (max-width: 800px) {
   .site-logo {
     width: 115px;
     height: 45px;
   }
-
+  
   .gallery-header-actions {
     gap: 1rem;
   }
 }
 
-/* ==========================================================
-   VIDEO HERO / WEBSITE ENTRANCE
-   ========================================================== */
-
-.video-hero {
-  position: relative;
-
-  width: 100%;
-  height: 100vh;
-  min-height: 600px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
-
-  background: #000;
-}
-
-
-/* ----------------------------------------------------------
-   Background video
-   ---------------------------------------------------------- */
-
-.hero-video {
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-  object-position: center;
-
-  z-index: 1;
-}
-
-
-/* ----------------------------------------------------------
-   Dark overlay
-
-   Makes white text easier to read over bright footage.
-   Increase 0.30 if you want the video darker.
-   ---------------------------------------------------------- */
-
-.hero-video-overlay {
-  position: absolute;
-  inset: 0;
-
-  background: rgba(0, 0, 0, 0.3);
-
-  z-index: 2;
-}
-
-
-/* ----------------------------------------------------------
-   Hero content
-   ---------------------------------------------------------- */
-
-.hero-video-content {
-  position: relative;
-  z-index: 3;
-
-  width: min(1200px, 90%);
-
-  text-align: center;
-
-  color: #fff;
-}
-
-
-/* Small text above title */
-
-.hero-eyebrow {
-  margin-bottom: 24px;
-
-  font-size: 0.75rem;
-  font-weight: 500;
-
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-
-/* Main title */
-
-.hero-video-content h1 {
-  max-width: 1000px;
-
-  margin: 0 auto;
-
-  font-family: "Instrument Serif", serif;
-
-  font-size: clamp(4rem, 9vw, 9rem);
-  font-weight: 400;
-
-  line-height: 0.85;
-  letter-spacing: -0.03em;
-}
-
-
-/* Italic part */
-
-.hero-video-content h1 em {
-  display: block;
-
-  font-weight: 400;
-}
-
-
-/* Services */
-
-.hero-intro {
-  margin: 32px auto 0;
-
-  font-family: "DM Sans", sans-serif;
-
-  font-size: 0.85rem;
-
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-
-/* ----------------------------------------------------------
-   Scroll / discover link
-   ---------------------------------------------------------- */
-
-.hero-scroll {
-  display: inline-flex;
-
-  align-items: center;
-  gap: 12px;
-
-  margin-top: 50px;
-
-  padding-bottom: 5px;
-
-  color: #fff;
-
-  font-family: "DM Sans", sans-serif;
-  font-size: 0.85rem;
-
-  text-decoration: none;
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-
-  transition:
-    opacity 0.3s ease,
-    gap 0.3s ease;
-}
-
-
-.hero-scroll:hover {
-  opacity: 0.7;
-  gap: 18px;
-}
-
-
-/* ==========================================================
-   MOBILE
-   ========================================================== */
-
 @media (max-width: 768px) {
-
-  .video-hero {
-    min-height: 100svh;
-  }
-
-  .hero-video-content {
-    width: 88%;
-  }
-
-  .hero-video-content h1 {
-    font-size: clamp(3.5rem, 16vw, 6rem);
-    line-height: 0.9;
-  }
-
-  .hero-intro {
-    font-size: 0.7rem;
-    line-height: 1.7;
-  }
-
-  .hero-scroll {
-    margin-top: 40px;
-  }
-
-}
-
-/* ==========================================================
-   TRANSPARENT NAVBAR OVER HERO VIDEO
-   ========================================================== */
-
-.site-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  z-index: 100;
-
-  /* Remove existing navbar background */
-  background: transparent;
-
-  /* Make sure there is no line/shadow */
-  border-bottom: none;
-  box-shadow: none;
-}
-
-
-/* ==========================================================
-   NAVBAR TEXT ON VIDEO
-   ========================================================== */
-
-/* Homesick Creative wordmark */
-.site-header .wordmark {
-  color: #fff;
-}
-
-/* Navigation links */
-.site-header nav a {
-  color: #fff;
-}
-
-/* Mobile Menu button */
-.site-header .menu-toggle {
-  color: #fff;
-}
-
-
-/* ==========================================================
-   START A PROJECT BUTTON
-   ========================================================== */
-
-.site-header .nav-cta {
-  color: #000;
-  background: #fff;
-
-  padding: 10px 18px;
-
-  border-radius: 100px;
-
-  transition:
-    background 0.3s ease,
-    color 0.3s ease;
-}
-
-
-.site-header .nav-cta:hover {
-  background: #000;
-  color: #fff;
-}
-
-/* ==========================================================
-   ABOUT PAGE
-   ========================================================== */
-
-
-/* ----------------------------------------------------------
-   HERO
-   ---------------------------------------------------------- */
-
-.about-hero {
-  position: relative;
-
-  width: 100%;
-  height: calc(100vh - 80px);
-  min-height: 600px;
-
-  overflow: hidden;
-}
-
-
-.about-hero-image {
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-  object-position: center;
-}
-
-
-/* Dark gradient makes the title readable */
-.about-hero-overlay {
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.65) 0%,
-      rgba(0, 0, 0, 0.05) 55%,
-      rgba(0, 0, 0, 0.1) 100%
-    );
-}
-
-
-.about-hero-content {
-  position: absolute;
-
-  left: clamp(24px, 5vw, 80px);
-  right: clamp(24px, 5vw, 80px);
-  bottom: clamp(35px, 7vw, 90px);
-
-  color: #ffffff;
-}
-
-
-.about-eyebrow {
-  margin: 0 0 20px;
-
-  font-size: 0.75rem;
-  font-weight: 600;
-
-  letter-spacing: 0.2em;
-}
-
-
-.about-hero h1 {
-  margin: 0;
-
-  max-width: 1000px;
-
-  font-size: clamp(4rem, 10vw, 9rem);
-  line-height: 0.82;
-
-  font-weight: 700;
-  letter-spacing: -0.07em;
-}
-
-
-/* ----------------------------------------------------------
-   INTRO
-   ---------------------------------------------------------- */
-
-.about-intro {
-  display: grid;
-  grid-template-columns: 1fr 2.5fr;
-
-  gap: 60px;
-
-  padding:
-    clamp(80px, 12vw, 180px)
-    clamp(24px, 5vw, 80px);
-}
-
-
-.about-intro-label p {
-  margin: 8px 0 0;
-
-  font-size: 0.7rem;
-  font-weight: 600;
-
-  letter-spacing: 0.18em;
-}
-
-
-.about-intro-text {
-  max-width: 950px;
-}
-
-
-.about-intro-text h2 {
-  margin: 0 0 70px;
-
-  font-size: clamp(2.5rem, 5vw, 5.5rem);
-  line-height: 1;
-
-  font-weight: 500;
-  letter-spacing: -0.05em;
-}
-
-
-.about-intro-text h2 span {
-  opacity: 0.35;
-}
-
-
-.about-intro-text > p {
-  max-width: 700px;
-
-  margin: 0 0 25px;
-
-  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
-  line-height: 1.6;
-}
-
-
-/* ----------------------------------------------------------
-   BIG STATEMENT
-   ---------------------------------------------------------- */
-
-.about-statement {
-  padding:
-    clamp(100px, 15vw, 220px)
-    clamp(24px, 5vw, 80px);
-
-  background: #111111;
-  color: #ffffff;
-}
-
-
-.about-statement-small {
-  margin: 0 0 60px;
-
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-}
-
-
-.about-statement h2 {
-  margin: 0;
-
-  font-size: clamp(4rem, 10vw, 10rem);
-  line-height: 0.85;
-
-  font-weight: 600;
-  letter-spacing: -0.07em;
-}
-
-
-.about-statement h2 em {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 400;
-}
-
-
-/* ----------------------------------------------------------
-   SERVICES
-   ---------------------------------------------------------- */
-
-.about-create {
-  padding:
-    clamp(80px, 12vw, 160px)
-    clamp(24px, 5vw, 80px);
-}
-
-
-.about-section-heading {
-  display: flex;
-  justify-content: space-between;
-
-  padding-bottom: 20px;
-
-  border-bottom: 1px solid currentColor;
-
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-}
-
-
-.about-services {
-  display: flex;
-  flex-direction: column;
-}
-
-
-.about-service {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-
-  align-items: center;
-
-  padding: 35px 0;
-
-  border-bottom: 1px solid rgba(128, 128, 128, 0.35);
-}
-
-
-.about-service span {
-  font-size: 0.7rem;
-}
-
-
-.about-service h3 {
-  margin: 0;
-
-  font-size: clamp(2.3rem, 5vw, 5rem);
-  font-weight: 500;
-
-  letter-spacing: -0.05em;
-}
-
-
-/* ----------------------------------------------------------
-   PHILOSOPHY
-   ---------------------------------------------------------- */
-
-.about-philosophy {
-  padding:
-    clamp(100px, 15vw, 220px)
-    clamp(24px, 5vw, 80px);
-}
-
-
-.about-philosophy > p {
-  width: min(500px, 100%);
-
-  margin: 0 0 120px auto;
-
-  font-size: 1.2rem;
-  line-height: 1.6;
-}
-
-
-.about-philosophy h2 {
-  margin: 0;
-
-  font-size: clamp(3.5rem, 9vw, 9rem);
-  line-height: 0.88;
-
-  letter-spacing: -0.07em;
-}
-
-
-/* ----------------------------------------------------------
-   CONTACT CTA
-   ---------------------------------------------------------- */
-
-.about-contact {
-  padding:
-    clamp(80px, 10vw, 150px)
-    clamp(24px, 5vw, 80px);
-
-  background: #111111;
-  color: #ffffff;
-}
-
-
-.about-contact > p {
-  margin: 0 0 40px;
-
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-}
-
-
-.about-contact a {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  color: inherit;
-
-  text-decoration: none;
-
-  font-size: clamp(2.5rem, 7vw, 7rem);
-  font-weight: 600;
-
-  line-height: 1;
-
-  letter-spacing: -0.06em;
-
-  transition: opacity 0.2s ease;
-}
-
-
-.about-contact a:hover {
-  opacity: 0.55;
-}
-
-
-.about-contact a span {
-  font-weight: 300;
-}
-
-
-/* ----------------------------------------------------------
-   FOOTER
-   ---------------------------------------------------------- */
-
-.about-footer {
-  display: flex;
-  justify-content: space-between;
-
-  gap: 20px;
-
-  padding: 30px clamp(24px, 5vw, 80px);
-
-  background: #111111;
-  color: #ffffff;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
-
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-}
-
-
-/* ==========================================================
-   ABOUT PAGE — DARK MODE
-   ========================================================== */
-
-/*
-   Change ".dark-mode" below if your existing site uses
-   another class such as "dark" or [data-theme="dark"].
-*/
-
-body.dark-mode .about-intro,
-body.dark-mode .about-create,
-body.dark-mode .about-philosophy {
-  background: #0e0e0e;
-  color: #f5f5f5;
-}
-
-
-body.dark-mode .about-intro-text h2 span {
-  opacity: 0.4;
-}
-
-
-/* ==========================================================
-   ABOUT PAGE — MOBILE
-   ========================================================== */
-
-@media (max-width: 768px) {
-
   .about-hero {
     height: 75vh;
     min-height: 520px;
   }
-
-
+  
   .about-hero h1 {
     font-size: clamp(3.5rem, 17vw, 6rem);
   }
-
-
+  
   .about-intro {
     grid-template-columns: 1fr;
-
     gap: 50px;
   }
-
-
+  
   .about-intro-text h2 {
     margin-bottom: 50px;
   }
-
-
+  
   .about-service {
     grid-template-columns: 50px 1fr;
   }
-
-
+  
   .about-philosophy > p {
-    margin:
-      0 0 80px
-      0;
+    margin: 0 0 80px 0;
   }
-
-
+  
   .about-contact a {
     gap: 30px;
   }
-
-
+  
   .about-footer {
     flex-direction: column;
   }
+}
 
+@media (max-width:800px) {
+  .site-header nav {
+    background: var(--paper);
+    color: var(--ink);
+  }
+  
+  body:has(.video-hero) .site-header nav, .about-page .site-header nav {
+    background: #111;
+    color: #fff;
+  }
+  
+  .about-page .about-hero {
+    height: 85svh;
+    min-height: 520px;
+  }
+  
+  .about-page .about-hero h1 {
+    font-size: clamp(2.75rem,13vw,6rem);
+  }
+  
+  .about-page .about-intro {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .about-page .about-service {
+    grid-template-columns: 40px minmax(0,1fr);
+  }
+  
+  .about-page .about-service h3 {
+    font-size: clamp(1.7rem,7vw,3rem);
+  }
+  
+  .about-page .about-statement h2 {
+    font-size: clamp(2.7rem,10vw,6rem);
+  }
+  
+  .about-page .about-philosophy h2 {
+    font-size: clamp(2.4rem,9vw,6rem);
+  }
+  
+  .about-page .about-footer {
+    flex-direction: column;
+    align-items: start;
+  }
+  
+  .about-page .about-footer p:last-child {
+    text-align: left;
+  }
+}
+
+/* ==========================================================
+   16. Reduced motion
+   ========================================================== */
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  .marquee div {
+    animation: none;
+  }
 }
