@@ -1,30 +1,82 @@
-/* Events page — builds on assets/styles.css and its theme variables. */
-.events-intro { padding: clamp(6rem, 10vw, 11rem) 3vw 7rem; border-bottom: 1px solid var(--line); }
-.events-intro h1 { font: 400 clamp(4.4rem, 10vw, 10rem)/.86 var(--serif); letter-spacing: -.045em; margin: 2rem 0; }
-.events-intro h1 em, .event-info h3 em, .events-past h2 em { color: var(--blue); font-weight: 400; }
-.events-intro > p:last-child { max-width: 35rem; line-height: 1.6; font-size: clamp(1.05rem, 1.6vw, 1.3rem); }
-.events-list { padding: 6rem 3vw 9rem; }
-.events-section-heading { display: flex; justify-content: space-between; align-items: center; gap: 1rem; border-bottom: 1px solid var(--line); margin-bottom: 3rem; padding-bottom: 1rem; }
-.events-section-heading h2 { margin: 0; font-size: .85rem; text-transform: uppercase; letter-spacing: .12em; }
-.events-section-heading span { font-size: .8rem; opacity: .65; }
-.event-feature { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(2rem, 6vw, 8rem); align-items: center; }
-.event-artwork { background: #0c0c0c; }
-.event-artwork img { display: block; width: 100%; height: auto; }
-.event-info h3 { font: 400 clamp(3.5rem, 6vw, 7rem)/.9 var(--serif); letter-spacing: -.035em; margin: 1.4rem 0 2rem; }
-.event-summary { max-width: 32rem; line-height: 1.7; font-size: 1.1rem; }
-.event-facts { margin: 3rem 0; border-top: 1px solid var(--line); }
-.event-facts div { display: grid; grid-template-columns: 6rem 1fr; gap: 1rem; border-bottom: 1px solid var(--line); padding: 1.1rem 0; }
-.event-facts dt { font-size: .78rem; opacity: .65; text-transform: uppercase; letter-spacing: .06em; }
+/* Events page only. Shared theme, logo and footer styles come from styles.css. */
+.events-main { padding: 0 5vw; }
+.events-intro { padding: 6rem 0 5rem; }
+.events-intro h1 { font: 400 clamp(3.5rem, 8vw, 8rem)/.92 var(--serif); letter-spacing: -.045em; margin: 2rem 0; }
+.events-intro h1 em, .event-copy h3 em, .events-contact h2 em { color: var(--blue); font-weight: 400; }
+.events-intro > p:not(.eyebrow) { line-height: 1.65; max-width: 36rem; margin-bottom: 2rem; }
+.events-section { padding: 2rem 0 5rem; scroll-margin-top: 100px; }
+.events-section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; border-top: 1px solid var(--line); padding: 1.5rem 0 2.5rem; }
+.events-section-heading h2 { font-size: .8rem; text-transform: uppercase; letter-spacing: .13em; margin: 0; }
+.events-section-heading span { font-size: .8rem; }
+.event-feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6vw; align-items: center; }
+.event-poster { display: block; width: 100%; height: auto; }
+.event-copy h3 { font: 400 clamp(3.5rem, 6vw, 6.5rem)/.95 var(--serif); letter-spacing: -.03em; margin: 1.5rem 0; }
+.event-description { line-height: 1.65; max-width: 32rem; }
+.event-facts { margin: 2rem 0; }
+.event-facts > div { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--line); }
+.event-facts dt { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; padding-top: .2rem; }
 .event-facts dd { margin: 0; line-height: 1.5; }
-.event-ticket-pending { display: inline-block; padding: 1.2rem 1.6rem; background: var(--ink); color: var(--paper); font-weight: 600; border-radius: 100px; }
-.events-past { padding: 7rem 3vw 9rem; background: var(--ink); color: var(--paper); }
-.events-past h2 { font: 400 clamp(4rem, 8vw, 8rem)/.9 var(--serif); letter-spacing: -.04em; margin: 1rem 0 2rem; }
-.events-past > p:last-child { opacity: .75; }
-/* In dark mode the global color variables are inverted; the archive stays contrasting. */
-@media (max-width: 800px) {
-  .events-intro { padding: 5rem 5vw; }
-  .events-list { padding: 4rem 5vw 6rem; }
-  .event-feature { grid-template-columns: 1fr; }
-  .event-info h3 { margin-top: 1rem; }
-  .events-past { padding: 5rem 5vw; }
+.venue-note { display: block; font-size: .8rem; margin-top: .4rem; }
+.event-ticket-button { display: flex; justify-content: space-between; gap: 1rem; width: 100%; padding: 1.2rem 1.5rem; background: var(--ink); color: var(--paper); border: 0; font: 500 .95rem var(--sans); border-radius: 100px; }
+.event-ticket-button:disabled { cursor: not-allowed; opacity: .7; }
+.event-note { font-size: .8rem; line-height: 1.5; }
+.events-past > p { max-width: 40rem; line-height: 1.65; }
+.events-contact { padding: 3rem 0 6rem; }
+.events-contact h2 { font: 400 clamp(3rem, 6vw, 6rem)/.95 var(--serif); margin: 1.5rem 0 2rem; }
+.events-page a:focus-visible, .events-page button:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
+/* Switch the navigation before its desktop links run out of room. */
+@media (max-width: 1100px) {
+  .events-page .menu-toggle { display: block; }
+  .events-page .site-header nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--paper); padding: 1.5rem 5vw; flex-direction: column; align-items: stretch; border-bottom: 1px solid var(--line); }
+  .events-page .site-header nav.open { display: flex; }
 }
+@media (max-width: 700px) {
+  .events-intro { padding: 3rem 0; }
+  .event-feature { grid-template-columns: 1fr; gap: 2rem; }
+  .events-section-heading { align-items: start; flex-direction: column; padding-bottom: 1.5rem; }
+  .event-facts > div { grid-template-columns: 5.5rem 1fr; }
+  .events-section { padding-bottom: 3rem; }
+  .events-page footer { grid-template-columns: 1fr; padding: 2rem 5vw; }
+}
+
+/* ==========================================================
+   Step 3 — Event detail page
+   ========================================================== */
+.event-breadcrumb { padding-top: 2.5rem; font-size: .85rem; }
+.event-detail-intro { padding: 3rem 0; }
+.event-detail-intro h1 { font: 400 clamp(4rem, 9vw, 9rem)/.88 var(--serif); letter-spacing: -.04em; margin: 1.5rem 0 2rem; }
+.event-detail-intro h1 em, .event-detail-content h2 em { color: var(--blue); font-weight: 400; }
+.event-detail-summary { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.event-detail-summary p { line-height: 1.6; }
+.event-detail-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6vw; padding-bottom: 5rem; align-items: start; }
+.event-detail-content > h2 { font: 400 clamp(2.8rem, 4.5vw, 5rem)/.95 var(--serif); letter-spacing: -.03em; margin: 1.5rem 0; }
+.event-detail-content > p:not(.eyebrow) { line-height: 1.7; }
+.event-genres { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; list-style: none; margin: 1.5rem 0; }
+.event-genres li { border: 1px solid var(--line); border-radius: 100px; padding: .5rem .85rem; font-size: .8rem; }
+.event-ticket-panel { border: 1px solid var(--line); padding: 2rem; scroll-margin-top: 110px; }
+.event-ticket-panel h2 { font: 400 2.6rem/1 var(--serif); margin: 1rem 0; }
+.event-ticket-panel p { line-height: 1.6; }
+.event-ticket-panel .event-ticket-button { margin-top: 1.5rem; }
+.event-ticket-button[href]:hover { background: var(--blue); color: white; }
+.event-faq { max-width: 100%; }
+.event-faq details { border-bottom: 1px solid var(--line); padding: 1.3rem 0; }
+.event-faq summary { cursor: pointer; font-weight: 500; line-height: 1.5; }
+.event-faq details p { max-width: 45rem; line-height: 1.7; }
+.event-faq summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
+@media (max-width: 700px) {
+  .event-detail-layout { grid-template-columns: 1fr; gap: 2rem; padding-bottom: 3rem; }
+  .event-ticket-panel { padding: 1.5rem; }
+  .event-detail-intro { padding: 2rem 0; }
+}
+
+/* Step 4 — Regular ticket selection; themed separately from homepage forms. */
+.ticket-type { display: flex; justify-content: space-between; gap: 1rem; align-items: start; border-top: 1px solid var(--line); padding-top: 1.5rem; }
+.ticket-type h3 { margin: 0; font-size: 1rem; }
+.ticket-type p { margin: .5rem 0 1rem; font-size: .85rem; }
+.ticket-type strong { font-size: 1.6rem; white-space: nowrap; }
+.ticket-type strong span { display: block; font: 400 .75rem var(--sans); text-align: right; margin-top: .3rem; }
+.ticket-selection label { margin: .5rem 0; }
+.events-page .ticket-selection select { background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 0; padding: .8rem; margin: 0; font: 400 1rem var(--sans); }
+.ticket-selection select:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.ticket-total { display: flex; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--line); padding-top: 1.2rem; margin-top: 1.2rem; }
+.ticket-total output { font-weight: 600; }

@@ -3,73 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Discover upcoming parties and creative experiences by Homesick Creative." />
+  <meta name="description" content="Discover DJ sets, parties and upcoming Homesick Creative events." />
   <title>Events — Homesick Creative</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/styles.css" />
   <link rel="stylesheet" href="./assets/events.css" />
+  <script src="./assets/events.js" defer></script>
 </head>
 <body class="events-page">
-  <!-- Shared Homesick Creative navigation -->
-  <header class="site-header">
-    <a class="logo-link" href="./index.html" aria-label="Homesick Creative home">
-      <img class="site-logo" src="./assets/logo-homesick-white-HD.png" alt="Homesick Creative" />
-    </a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
-    <nav id="main-nav" aria-label="Main navigation">
-      <a href="./index.html#work">Work</a>
-      <a href="./index.html#services">Services</a>
-      <a href="./events.html" aria-current="page">Events</a>
-      <a href="./index.html#packages">Packages</a>
-      <a href="./about.html">About</a>
-      <button class="theme-toggle" type="button" aria-label="Switch to dark mode"><span class="theme-icon">☾</span></button>
-      <a class="nav-cta" href="./index.html#contact">Start a project</a>
-    </nav>
-  </header>
+<header class="site-header">
 
-  <main>
-    <section class="events-intro" aria-labelledby="events-heading">
-      <p class="eyebrow">Homesick Creative / Live experiences</p>
-      <h1 id="events-heading">Good nights.<br /><em>Great stories.</em></h1>
-      <p>From intimate DJ sets to unforgettable parties. Come for the music, stay for the moment.</p>
+	  <!-- Logo -->
+	  <a
+	    class="logo-link"
+	    href="./index.html#top"
+	    aria-label="Homesick Creative home"
+	  >
+	    <img
+	      class="site-logo"
+	      src="./assets/logo-homesick-white-HD.png"
+	      alt="Homesick Creative"
+	    >
+	  </a>
+
+
+	  <!-- Mobile menu button -->
+	  <button
+	    class="menu-toggle"
+	    aria-expanded="false"
+	    aria-controls="main-nav"
+	  >
+	    Menu
+	  </button>
+
+
+	  <!-- Navigation -->
+	  <nav id="main-nav" aria-label="Main navigation">
+
+	    <a href="./index.html#work">Work</a>
+
+	    <a href="./index.html#services">Services</a>
+	    
+	      <!-- Events page -->
+  	   <a href="./events.html" aria-current="page">Events</a>
+
+	    <a href="./index.html#packages">Packages</a>
+
+	    <!-- Separate About page -->
+	    <a href="./about.html">About</a>
+
+
+	    <!-- Dark mode -->
+	    <button
+	      class="theme-toggle"
+	      type="button"
+	      aria-label="Switch to dark mode"
+	    >
+	      <span class="theme-icon">☾</span>
+	    </button>
+
+
+	    <!-- Contact -->
+	    <a class="nav-cta" href="./index.html#contact">
+	      Start a project
+	    </a>
+
+	  </nav>
+
+</header>
+  <main id="top" class="events-main">
+    <!-- Intro uses the same fonts and theme variables as the portfolio. -->
+    <section class="events-intro" aria-labelledby="events-title">
+      <p class="eyebrow">Homesick Creative / Events</p>
+      <h1 id="events-title">Good music.<br><em>Shared moments.</em></h1>
+      <p>More than content. We create experiences.<br>DJ sets, parties and nights to remember.</p>
+      <a class="text-link" href="#upcoming">Explore upcoming events <span aria-hidden="true">↓</span></a>
     </section>
 
-    <section class="events-list" aria-labelledby="upcoming-heading">
-      <div class="events-section-heading"><h2 id="upcoming-heading">Upcoming events</h2><span>01 / 2026</span></div>
-      <article class="event-feature">
-        <div class="event-artwork">
-          <img src="./assets/halloween-poster.png" alt="ERWN Halloween DJ set poster, October 31, 2026, 19:00 to 23:00" />
-        </div>
-        <div class="event-info">
-          <p class="eyebrow">31 October 2026 · Halloween edition</p>
-          <h3>ERWN<br /><em>Halloween Party.</em></h3>
-          <p class="event-summary">One night. Heavy bass. Halloween energy. Afro, Shatta, Hip-Hop, Amapiano, Latin and House.</p>
+    <section id="upcoming" class="events-section" aria-labelledby="upcoming-title">
+      <div class="events-section-heading"><h2 id="upcoming-title">Upcoming events</h2><span>01 / Halloween edition</span></div>
+      <!-- Keep the full poster visible; do not crop its event information. -->
+      <article class="event-feature" aria-labelledby="halloween-title">
+        <img class="event-poster" src="./assets/halloween-poster.png" alt="ERWN Halloween Party poster: 31 October 2026, 19:00–23:00, Afro, Shatta, Hip-Hop, Amapiano, Latin and House." width="1086" height="1448" />
+        <div class="event-copy">
+          <p class="eyebrow">DJ set / ERWN</p>
+          <h3 id="halloween-title">Halloween<br><em>Party.</em></h3>
+          <p class="event-description">An evening of Afro, Shatta, Hip-Hop, Amapiano, Latin and House. Come for the music, stay for the energy.</p>
           <dl class="event-facts">
-            <div><dt>Date</dt><dd>Saturday, 31 October 2026</dd></div>
-            <div><dt>Time</dt><dd>19:00–23:00</dd></div>
-            <div><dt>Location</dt><dd>Salle commune · Résidence Gisèle Halimi, Villetaneuse</dd></div>
+            <div><dt>Date</dt><dd><time datetime="2026-10-31">31 October 2026</time></dd></div>
+            <div><dt>Time</dt><dd>19:00–23:00 · Paris time</dd></div>
+            <div><dt>Planned venue</dt><dd>Salle commune · Résidence Gisèle Halimi<br>Villetaneuse, France <span class="venue-note">Awaiting confirmation</span></dd></div>
+            <div><dt>Tickets</dt><dd>Regular ticket · €8</dd></div>
           </dl>
-          <!-- Checkout will be connected in the next phase. -->
-          <span class="event-ticket-pending" aria-label="Ticket sales are not yet open">Ticket sales coming soon ↗</span>
+          <!-- Step 2 only: enable checkout after the payment system is ready. -->
+          <a class="event-ticket-button" href="./event-details.html?event=halloween-2026">View event <span aria-hidden="true">↗</span></a>
+          <p id="ticket-note" class="event-note">Regular tickets: €8. Booking opens once event details are confirmed.</p>
         </div>
       </article>
     </section>
 
-    <section class="events-past" aria-labelledby="past-heading">
-      <p class="eyebrow">The archive</p>
-      <h2 id="past-heading">Past <em>moments.</em></h2>
-      <p>More events, more memories. Watch this space.</p>
+    <!-- Add real past events here when you have event links or recaps. -->
+    <section class="events-section events-past" aria-labelledby="past-title">
+      <div class="events-section-heading"><h2 id="past-title">Past events</h2><span>The memories stay.</span></div>
+      <p>Our event archive is coming soon. This is where you’ll find highlights and recaps from our nights together.</p>
+    </section>
+    <section class="events-contact" aria-labelledby="collaborate-title">
+      <p class="eyebrow">Let’s create a moment</p>
+      <h2 id="collaborate-title">Have a space.<br><em>Have an idea?</em></h2>
+      <a class="text-link" href="./index.html#contact">Organize an event with us <span aria-hidden="true">↗</span></a>
     </section>
   </main>
+  <footer><a class="wordmark" href="./index.html">HOMESICK<span>CREATIVE</span></a><p>Creative work, wherever the story takes us.</p><p>© 2026 Homesick Creative</p></footer>
 
-  <footer>
-    <a class="wordmark" href="./index.html">HOMESICK<span>CREATIVE</span></a>
-    <p>Creative work, wherever the story takes us.</p>
-    <p>© 2026 Homesick Creative</p>
-  </footer>
-  <!-- Dedicated script: main site.js assumes homepage-only forms exist. -->
-  <script src="./assets/events.js" defer></script>
 </body>
 </html>

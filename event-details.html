@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ERWN Halloween Party — 31 October 2026, 19:00–23:00. Discover the music, venue plans and ticket information." />
+  <title>ERWN Halloween Party — Homesick Creative</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/styles.css" />
+  <link rel="stylesheet" href="./assets/events.css" />
+  <script src="./assets/events.js" defer></script>
+  <script src="./assets/checkout.js" defer></script>
+</head>
+<body class="events-page event-details-page">
+<header class="site-header">
+
+	  <!-- Logo -->
+	  <a
+	    class="logo-link"
+	    href="./index.html#top"
+	    aria-label="Homesick Creative home"
+	  >
+	    <img
+	      class="site-logo"
+	      src="./assets/logo-homesick-white-HD.png"
+	      alt="Homesick Creative"
+	    >
+	  </a>
+
+
+	  <!-- Mobile menu button -->
+	  <button
+	    class="menu-toggle"
+	    aria-expanded="false"
+	    aria-controls="main-nav"
+	  >
+	    Menu
+	  </button>
+
+
+	  <!-- Navigation -->
+	  <nav id="main-nav" aria-label="Main navigation">
+
+	    <a href="./index.html#work">Work</a>
+
+	    <a href="./index.html#services">Services</a>
+	    
+	      <!-- Events page -->
+  	   <a href="./events.html" aria-current="location">Events</a>
+
+	    <a href="./index.html#packages">Packages</a>
+
+	    <!-- Separate About page -->
+	    <a href="./about.html">About</a>
+
+
+	    <!-- Dark mode -->
+	    <button
+	      class="theme-toggle"
+	      type="button"
+	      aria-label="Switch to dark mode"
+	    >
+	      <span class="theme-icon">☾</span>
+	    </button>
+
+
+	    <!-- Contact -->
+	    <a class="nav-cta" href="./index.html#contact">
+	      Start a project
+	    </a>
+
+	  </nav>
+
+</header>
+  <main id="top" class="events-main">
+    <!-- Navigation back to the full event list. -->
+    <div class="event-breadcrumb"><a class="text-link" href="./events.html">← All events</a></div>
+    <section class="event-detail-intro" aria-labelledby="event-title">
+      <p class="eyebrow">Homesick Creative / Halloween edition</p>
+      <h1 id="event-title">ERWN.<br><em>After dark.</em></h1>
+      <div class="event-detail-summary"><p>Halloween Party · <time datetime="2026-10-31">31 October 2026</time> · 19:00–23:00</p><a class="text-link" href="#tickets">Ticket information ↓</a></div>
+    </section>
+
+    <section class="event-detail-layout" aria-label="Halloween Party details">
+      <div>
+        <img class="event-poster" src="./assets/halloween-poster.png" alt="ERWN Halloween Party poster, 31 October 2026, 19:00–23:00. Planned venue: Résidence Gisèle Halimi, Villetaneuse." width="1086" height="1448" />
+        <p class="event-note">The poster shows the planned venue. Final location is awaiting confirmation.</p>
+      </div>
+      <div class="event-detail-content">
+        <p class="eyebrow">The night</p>
+        <h2>Good music.<br><em>Halloween energy.</em></h2>
+        <p>An evening with ERWN, bringing together Afro, Shatta, Hip-Hop, Amapiano, Latin and House. Meet up with friends, discover the sounds and make a night of it.</p>
+        <ul class="event-genres" aria-label="Music genres"><li>Afro</li><li>Shatta</li><li>Hip-Hop</li><li>Amapiano</li><li>Latin</li><li>House</li></ul>
+        <dl class="event-facts">
+          <div><dt>Date</dt><dd>Saturday, <time datetime="2026-10-31">31 October 2026</time></dd></div>
+          <div><dt>Time</dt><dd>19:00–23:00 · Paris time</dd></div>
+          <div><dt>DJ</dt><dd>ERWN</dd></div>
+          <div><dt>Planned venue</dt><dd>Salle commune · Résidence Gisèle Halimi<br>Villetaneuse, France<span class="venue-note">Awaiting confirmation</span></dd></div>
+        </dl>
+        <!-- Step 4: ticket selection. Checkout is enabled only after payment integration. -->
+        <section id="tickets" class="event-ticket-panel" aria-labelledby="tickets-title">
+          <p class="eyebrow">Tickets</p>
+          <h2 id="tickets-title">Be part of the night.</h2>
+          <div class="ticket-type"><div><h3>Regular admission</h3><p>Entry for one person to ERWN Halloween Party.</p></div><strong>€8<span> / person</span></strong></div>
+          <div class="ticket-selection">
+            <label for="ticket-quantity">Quantity</label>
+            <!-- UI limit of 10 per order; this is not the event capacity. -->
+            <select id="ticket-quantity" name="quantity" aria-describedby="quantity-note">
+              <option value="1">1 ticket</option><option value="2">2 tickets</option><option value="3">3 tickets</option><option value="4">4 tickets</option><option value="5">5 tickets</option><option value="6">6 tickets</option><option value="7">7 tickets</option><option value="8">8 tickets</option><option value="9">9 tickets</option><option value="10">10 tickets</option>
+            </select>
+            <p id="quantity-note" class="event-note">Up to 10 tickets per order.</p>
+          </div>
+          <div class="ticket-total"><span>Ticket subtotal</span><output id="ticket-total" for="ticket-quantity" aria-live="polite" aria-atomic="true">€8.00</output></div>
+          <noscript><p class="event-note">Enable JavaScript to update the subtotal when changing quantity.</p></noscript>
+          <button class="event-ticket-button" id="checkout-button" type="button" aria-describedby="booking-status">Try test checkout <span aria-hidden="true">↗</span></button>
+          <p id="booking-status" class="event-note">Test mode only: no real charge or valid entry ticket. Selecting a quantity does not reserve tickets.</p>
+        <p id="checkout-message" class="event-note" role="status" aria-live="polite"></p>
+        </section>
+      </div>
+    </section>
+
+    <!-- Native disclosure elements work with keyboard navigation and without JS. -->
+    <section class="event-faq events-section" aria-labelledby="faq-title">
+      <div class="events-section-heading"><h2 id="faq-title">Before you come</h2><span>A few things to know.</span></div>
+      <details><summary>Where is the party taking place?</summary><p>The planned venue is the common room at Résidence Gisèle Halimi in Villetaneuse. Confirmation is pending; check this page for the final venue before making plans.</p></details>
+      <details><summary>Can I buy a ticket now?</summary><p>Regular admission is €8 per person. You can select a quantity to see the ticket subtotal, and try the payment flow in test mode. Live sales are not open yet.</p></details>
+      <details><summary>What music will ERWN play?</summary><p>Expect Afro, Shatta, Hip-Hop, Amapiano, Latin and House throughout the evening.</p></details>
+      <details><summary>Are there age restrictions or entry conditions?</summary><p>Entry conditions will be published before bookings open.</p></details>
+      <details><summary>How can I ask about the event?</summary><p>Use our <a class="text-link" href="./index.html#contact">contact page ↗</a> to get in touch with Homesick Creative.</p></details>
+    </section>
+  </main>
+  <footer><a class="wordmark" href="./index.html">HOMESICK<span>CREATIVE</span></a><p>Creative work, wherever the story takes us.</p><p>© 2026 Homesick Creative</p></footer>
+
+</body>
+</html>
