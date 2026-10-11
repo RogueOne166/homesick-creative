@@ -67,7 +67,6 @@ module.exports = async function handler(req, res) {
 
   const params = new URLSearchParams({
     mode: "payment",
-    "payment_method_types[0]": "card",
     "line_items[0][price_data][currency]": "eur",
     "line_items[0][price_data][unit_amount]": "800",
     "line_items[0][price_data][product_data][name]":
