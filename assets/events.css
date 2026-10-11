@@ -1,0 +1,30 @@
+/* Events page — builds on assets/styles.css and its theme variables. */
+.events-intro { padding: clamp(6rem, 10vw, 11rem) 3vw 7rem; border-bottom: 1px solid var(--line); }
+.events-intro h1 { font: 400 clamp(4.4rem, 10vw, 10rem)/.86 var(--serif); letter-spacing: -.045em; margin: 2rem 0; }
+.events-intro h1 em, .event-info h3 em, .events-past h2 em { color: var(--blue); font-weight: 400; }
+.events-intro > p:last-child { max-width: 35rem; line-height: 1.6; font-size: clamp(1.05rem, 1.6vw, 1.3rem); }
+.events-list { padding: 6rem 3vw 9rem; }
+.events-section-heading { display: flex; justify-content: space-between; align-items: center; gap: 1rem; border-bottom: 1px solid var(--line); margin-bottom: 3rem; padding-bottom: 1rem; }
+.events-section-heading h2 { margin: 0; font-size: .85rem; text-transform: uppercase; letter-spacing: .12em; }
+.events-section-heading span { font-size: .8rem; opacity: .65; }
+.event-feature { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(2rem, 6vw, 8rem); align-items: center; }
+.event-artwork { background: #0c0c0c; }
+.event-artwork img { display: block; width: 100%; height: auto; }
+.event-info h3 { font: 400 clamp(3.5rem, 6vw, 7rem)/.9 var(--serif); letter-spacing: -.035em; margin: 1.4rem 0 2rem; }
+.event-summary { max-width: 32rem; line-height: 1.7; font-size: 1.1rem; }
+.event-facts { margin: 3rem 0; border-top: 1px solid var(--line); }
+.event-facts div { display: grid; grid-template-columns: 6rem 1fr; gap: 1rem; border-bottom: 1px solid var(--line); padding: 1.1rem 0; }
+.event-facts dt { font-size: .78rem; opacity: .65; text-transform: uppercase; letter-spacing: .06em; }
+.event-facts dd { margin: 0; line-height: 1.5; }
+.event-ticket-pending { display: inline-block; padding: 1.2rem 1.6rem; background: var(--ink); color: var(--paper); font-weight: 600; border-radius: 100px; }
+.events-past { padding: 7rem 3vw 9rem; background: var(--ink); color: var(--paper); }
+.events-past h2 { font: 400 clamp(4rem, 8vw, 8rem)/.9 var(--serif); letter-spacing: -.04em; margin: 1rem 0 2rem; }
+.events-past > p:last-child { opacity: .75; }
+/* In dark mode the global color variables are inverted; the archive stays contrasting. */
+@media (max-width: 800px) {
+  .events-intro { padding: 5rem 5vw; }
+  .events-list { padding: 4rem 5vw 6rem; }
+  .event-feature { grid-template-columns: 1fr; }
+  .event-info h3 { margin-top: 1rem; }
+  .events-past { padding: 5rem 5vw; }
+}
